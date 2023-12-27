@@ -3,12 +3,14 @@ import bodyParser from "body-parser";
 import viewEngine from "./config/viewEngine";
 import initWebRoutes from "./route/web";
 import connectDB from "./config/connectDB";
-var morgan = require('morgan')
+const morgan = require('morgan')
 import checkToken from "./authentication/aut.js"
 
 // import cors from "cors";
 require("dotenv").config();
 let app = express();
+
+app.use(morgan('combined'));
 
 app.use(checkToken);
 
